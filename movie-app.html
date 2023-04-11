@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie App</title>
+    <script src="js/movie-app.js"></script>
+    <script src="js/jquery-3.6.4.js"></script>
+
+</head>
+<body>
+<div id="loading">
+    <img src="css/img/loading.gif">
+</div>
+
+<div id="movies"></div>
+<script>
+    $(window).on('load', function () {
+        $('#loading').hide();
+
+        fetch('http://localhost:3000/movies')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                data.forEach(function(element) {
+                    $('#movies').append(`<p>${element.title}</p>`)
+                })
+            })
+
+
+    })
+
+
+</script>
+</body>
+</html>
