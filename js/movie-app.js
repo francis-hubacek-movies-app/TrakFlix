@@ -6,7 +6,7 @@ $(window).on('load', function () {
         .then(data => {
             console.log(data)
             data.forEach(function(element) {
-                $('#movies').append(`<p>${element.title}</p>`)
+                $('#movies').append(`<p>${element.title}</p><button>Delete</button><button>Edit</button>`)
             })
             $('#loading').hide();
         });
@@ -37,9 +37,4 @@ $('#addMovieButton').click(function(e) {
         })
         .catch(error => console.error(error));
 });
-
-
-
-
-
 
