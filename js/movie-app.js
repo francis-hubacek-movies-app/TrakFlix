@@ -15,8 +15,8 @@ $(window).on('load', function () {
 })
 
 
-$('#addMovieButton').click(function (event) {
-    $('body').css('color', 'red');
+$('#addMovieButton').submit(function (event) {
+    console.log("hello")
     event.preventDefault();
 })
 
