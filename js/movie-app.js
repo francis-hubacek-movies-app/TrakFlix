@@ -44,8 +44,3 @@ $('#addMovieButton').click(function(e) {
         .catch(error => console.error(error));
 });
 
-
-
-
-
-
