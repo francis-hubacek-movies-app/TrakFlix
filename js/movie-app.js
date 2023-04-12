@@ -10,7 +10,7 @@ $(window).on('load', function () {
                 $('#movies').append(`<div class="movieCard"><p class="movieTitle">${element.title}</p><p class="movieRating">${element.rating}</p><button class="editButton">Edit</button><button id="deleteButton">Delete</button></div>`)
             })
             for (let i = 0; i < $('.movieCard').length; i++) {
-                titleArr.push($('.editButton:nth-of-type(i)').parent().children('.movieTitle').first().text());
+                titleArr.push($('.editButton:nth-of-type(' + i +')').parent().children('.movieTitle').first().text());
             }
             {
                 console.log(titleArr);
