@@ -4,16 +4,17 @@
 }
 
 html {
-    background-image: url("img/newpopcorn.jpeg");
-    background-repeat: no-repeat;
+    background-image: url("img/wallpaperflare.com_wallpaper.jpg");
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
 }
 
 #movies {
     display: flex;
     overflow: auto;
-    background-color: darkblue;
+
 }
 
 .movieCard {
@@ -24,6 +25,7 @@ html {
     margin: 15px 30px;
     padding: 15px;
     background-color: rgba(255,255,255,0.51);
+    box-shadow: 4px 4px 4px #d70fcf;
 }
 
 .editButton {
