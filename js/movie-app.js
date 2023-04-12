@@ -6,7 +6,7 @@ fetch('http://localhost:3000/movies')
     .then(data => {
         console.log(data);
         data.forEach(function(element) {
-            $('#movies').append(`<div id = "${element.id}" class="movieCard"><h2 class="movieTitle">${element.title}</h2><p class="movieRating">${element.rating} <i class="fa-solid fa-star" style="color: #ffdc05;"></i></p><button class="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
+            $('#movies').append(`<div id = "${element.id}" class="movieCard"><h2 class="movieTitle">${element.title}</h2><p>${element.genre}</p><p class="movieRating">${element.rating} <i class="fa-solid fa-star" style="color: #ffdc05;"></i></p><button class="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
             titleArr.push(element.title);
             ratingArr.push(element.rating);
         });
@@ -24,7 +24,9 @@ $('#addMovieButton').click(function(e) {
         console.log(title);
         let rating = $('#movieRating').val();
         console.log(rating);
-        return {title, rating};
+        let genre = $('#movieGenre').val();
+        console.log(genre);
+        return {title, rating, genre};
     }
 
     fetch('http://localhost:3000/movies', {
@@ -37,7 +39,7 @@ $('#addMovieButton').click(function(e) {
         .then(resp => resp.json())
         .then(data => {
             console.log(data);
-            $('#movies').append(`<div id="${data.id}" class="movieCard"><p class="movieTitle">${data.title}</p><p class="movieRating">${data.rating} <i class="fa-solid fa-star" style="color: #ffdc05;"></i></p><button class ="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
+            $('#movies').append(`<div id="${data.id}" class="movieCard"><h2 class="movieTitle">${data.title}</h2>${data.genre}</p><p class="movieRating">${data.rating} <i class="fa-solid fa-star" style="color: #ffdc05;"></i></p><button class ="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
             titleArr.push(data.title);
             ratingArr.push(data.rating);
             console.log(titleArr);

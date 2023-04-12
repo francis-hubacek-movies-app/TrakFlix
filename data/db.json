@@ -3,22 +3,55 @@
     {
       "title": "Shrek 2",
       "rating": "2",
-      "id": 1
+      "id": 1,
+      "genre": "Kids & Family"
     },
     {
-      "title": "Forest Gump",
-      "rating": "5",
+      "title": "Forest Gump 2",
+      "rating": "2",
       "id": 2
     },
     {
       "title": "Avengers",
       "rating": "1",
-      "id": 3
+      "id": 3,
+      "genre": "Action & Adventure"
     },
     {
       "title": "Transformers",
       "rating": "4",
-      "id": 4
+      "id": 4,
+      "genre": "Action & Adventure"
+    },
+    {
+      "title": "Cinderella",
+      "rating": "1",
+      "genre": "Kids & Family",
+      "id": 5
+    },
+    {
+      "title": "Salt",
+      "rating": "2",
+      "genre": "Action & Adventure",
+      "id": 6
+    },
+    {
+      "title": "Ratatouille",
+      "rating": "5",
+      "genre": "Kids & Family",
+      "id": 7
+    },
+    {
+      "title": "Mr. and Mrs. Smith",
+      "rating": "4",
+      "genre": "Action & Adventure",
+      "id": 8
+    },
+    {
+      "title": "The Notebook",
+      "rating": "3",
+      "genre": "Drama",
+      "id": 9
     }
   ]
 }
