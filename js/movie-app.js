@@ -42,6 +42,37 @@ $('#addMovieButton').click(function(e) {
         .catch(error => console.error(error));
 });
 
+$('#movies').on('click', '.editButton', function(e) {
+    e.preventDefault();
+    const movieCard = $(this).closest('.movieCard');
+    const movieId = movieCard.data('id');
+    const title = movieCard.find('.movieTitle').text();
+    const rating = movieCard.find('.movieRating').text();
+
+    // Show a prompt to get the new title and rating
+    const newTitle = prompt('Enter a new title:', title);
+    const newRating = prompt('Enter a new rating:', rating);
+
+    if (newTitle && newRating) {
+        // Send a PUT request to update the movie in the server
+        fetch(`http://localhost:3000/movies/${movieId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ title: newTitle, rating: newRating })
+        })
+            .then(() => {
+                // Update the movie card with the new title and rating
+                movieCard.find('.movieTitle').text(newTitle);
+                movieCard.find('.movieRating').text(newRating);
+            })
+            .catch(error => console.error(error));
+    }
+});
+
+
+
 console.log(titleArr);
 console.log(ratingArr);
 
