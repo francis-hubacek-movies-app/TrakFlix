@@ -5,11 +5,17 @@ $(window).on('load', function () {
         .then(response => response.json())
         .then(data => {
             console.log(data)
+            let titleArr = [];
             data.forEach(function(element) {
-                $('#movies').append(`<p>${element.title}</p>`)
+                $('#movies').append(`<div class="movieCard"><p class="movieTitle">${element.title}</p><p class="movieRating">${element.rating}</p><button class="editButton">Edit</button><button id="deleteButton">Delete</button></div>`)
             })
-            $('#loading').hide();
-        });
+            for (let i = 0; i < $('.movieCard').length; i++) {
+                titleArr.push($('.editButton:nth-of-type(i)').parent().children('.movieTitle').first().text());
+            }
+            {
+                console.log(titleArr);
+                $('#loading').hide();
+            }});
 
 });
 
@@ -33,7 +39,7 @@ $('#addMovieButton').click(function(e) {
         .then(resp => resp.json())
         .then(data => {
             console.log(data)
-            $('#movies').append(`<p>${data.title}</p>`)
+            $('#movies').append(`<div class="movieCard"><p class="movieTitle">${data.title}</p><p class="movieRating">${data.rating}</p><button class ="editButton">Edit</button><button class="deleteButton">Delete</button></div>`)
         })
         .catch(error => console.error(error));
 });
