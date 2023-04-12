@@ -3,6 +3,54 @@
     height: 700px;
 }
 
+html {
+    background-image: url("img/newpopcorn.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#movies {
+    display: flex;
+    overflow: auto;
+    background-color: darkblue;
+}
+
 .movieCard {
-    border: 1px black solid
+    border: 1px black solid;
+    border-radius: 15px;
+    min-width: 200px;
+    text-align: center;
+    margin: 15px 30px;
+    padding: 15px;
+    background-color: rgba(255,255,255,0.51);
+}
+
+.editButton {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.deleteButton {
+    background-color: red;
+    border-radius: 5px;
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 9999;
+}
+#loading img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#content {
+    display: none;
 }

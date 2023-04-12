@@ -1,19 +1,24 @@
 {
   "movies": [
     {
-      "title": "shrek2",
-      "rating": "3",
+      "title": "Shrek 2",
+      "rating": "2",
       "id": 1
     },
     {
-      "title": "Forest Gump2",
-      "rating": "4",
+      "title": "Forest Gump",
+      "rating": "5",
       "id": 2
     },
     {
-      "title": "cinderella2",
-      "rating": "3",
+      "title": "Avengers",
+      "rating": "1",
       "id": 3
+    },
+    {
+      "title": "Transformers",
+      "rating": "4",
+      "id": 4
     }
   ]
 }
