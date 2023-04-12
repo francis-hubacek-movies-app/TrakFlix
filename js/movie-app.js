@@ -1,17 +1,20 @@
-"use strict";
+'use strict';
 let titleArr = [];
 let ratingArr = [];
 fetch('http://localhost:3000/movies')
     .then(response => response.json())
     .then(data => {
-        console.log(data)
+        console.log(data);
         data.forEach(function(element) {
-            $('#movies').append(`<div class="movieCard"><p class="movieTitle">${element.title}</p><p class="movieRating">${element.rating}</p><button class="editButton">Edit</button><button class="deleteButton">Delete</button></div>`)
+            $('#movies').append(`<div id = "${element.id}" class="movieCard"><p class="movieTitle">${element.title}</p><p class="movieRating">${element.rating}</p><button class="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
             titleArr.push(element.title);
             ratingArr.push(element.rating);
-        })
+        });
         $('#loading').hide();
-});
+
+        console.log(titleArr);
+        console.log(ratingArr);
+    });
 
 
 $('#addMovieButton').click(function(e) {
@@ -33,19 +36,21 @@ $('#addMovieButton').click(function(e) {
     })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
-            $('#movies').append(`<div class="movieCard"><p class="movieTitle">${data.title}</p><p class="movieRating">${data.rating}</p><button class ="editButton">Edit</button><button class="deleteButton">Delete</button></div>`)
+            console.log(data);
+            $('#movies').append(`<div id="${data.id}" class="movieCard"><p class="movieTitle">${data.title}</p><p class="movieRating">${data.rating}</p><button class ="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
             titleArr.push(data.title);
             ratingArr.push(data.rating);
+            console.log(titleArr);
+            console.log(ratingArr);
         })
-
         .catch(error => console.error(error));
 });
 
 $('#movies').on('click', '.editButton', function(e) {
     e.preventDefault();
     const movieCard = $(this).closest('.movieCard');
-    const movieId = movieCard.data('id');
+    const movieId = parseInt(movieCard.attr('id'));
+    console.log(movieId);
     const title = movieCard.find('.movieTitle').text();
     const rating = movieCard.find('.movieRating').text();
 
@@ -72,9 +77,28 @@ $('#movies').on('click', '.editButton', function(e) {
 });
 
 
+$('#movies').on('click', '.deleteButton', function(e) {
+    e.preventDefault();
+    const movieCard = $(this).closest('.movieCard');
+    const movieId = parseInt(movieCard.attr('id'));
+    console.log(movieId);
 
-console.log(titleArr);
-console.log(ratingArr);
+    // Show a prompt to get the new title and rating
+    const newDelete = confirm('Are you sure you want to delete this movie?');
 
+    if(newDelete) {
+        fetch(`http://localhost:3000/movies/${movieId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify()
+        })
+            .then(() => {
+                // Update the movie card with the new title and rating
+                movieCard.remove();
+            })
+            .catch(error => console.error(error));
+    }
 
-
+});
