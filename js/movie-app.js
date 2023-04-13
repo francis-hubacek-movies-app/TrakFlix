@@ -8,7 +8,7 @@ fetch('http://localhost:3000/movies')
     .then(data => {
         console.log(data);
         data.forEach(function(element) {
-            $('#movies').append(`<div></div><div id = "${element.id}" class="movieCard"><h2 class="movieTitle">${element.title}</h2><p class="movieGenre">${element.genre}</p><p class="movieRating">${element.rating} <i class="fa-solid fa-star" style="color: #ffdc05;"></i></p><button class="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
+            $('#movies').append(`<div></div><div id = "${element.id}" class="movieCard"><h2 class="movieTitle">${element.title}</h2><p class="movieGenre">${element.genre}</p><p class="movieRating">${element.rating} <i class="fa-solid fa-star fa-2xl" style="color: #d70fcf;"></i></p><button class="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
             titleArr.push(element.title);
             ratingArr.push(element.rating);
         });
@@ -44,7 +44,7 @@ $('#addMovieButton').click(function(e) {
         .then(resp => resp.json())
         .then(data => {
             console.log(data);
-            $('#movies').append(`<div id="${data.id}" class="movieCard"><h2 class="movieTitle">${data.title}</h2><p class="movieGenre">${data.genre}</p><p class="movieRating">${data.rating} <i class="fa-solid fa-star" style="color: #ffdc05;"></i></p><button class ="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
+            $('#movies').append(`<div id="${data.id}" class="movieCard"><h2 class="movieTitle">${data.title}</h2><p class="movieGenre">${data.genre}</p><p class="movieRating">${data.rating} <i class="fa-solid fa-star fa-2xl" style="color: #d70fcf;"></i></p><button class ="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
             titleArr.push(data.title);
             ratingArr.push(data.rating);
             console.log(titleArr);
