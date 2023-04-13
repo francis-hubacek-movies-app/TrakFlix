@@ -1,22 +1,10 @@
 {
   "movies": [
     {
-      "title": "Shrek 3",
-      "rating": "3 ",
+      "title": "Shrek 2",
+      "rating": "5",
       "genre": "Kids & Family",
       "id": 1
-    },
-    {
-      "title": "Forest Gump",
-      "rating": "5",
-      "genre": "Drama",
-      "id": 2
-    },
-    {
-      "title": "Avengers",
-      "rating": "1",
-      "id": 3,
-      "genre": "Action & Adventure"
     },
     {
       "title": "Transformers",
@@ -29,12 +17,6 @@
       "rating": "1",
       "genre": "Kids & Family",
       "id": 5
-    },
-    {
-      "title": "Salt",
-      "rating": "2",
-      "genre": "Action & Adventure",
-      "id": 6
     },
     {
       "title": "Ratatouille",
@@ -59,6 +41,12 @@
       "rating": "5",
       "genre": "Drama",
       "id": 10
+    },
+    {
+      "title": "Lord of the Rings",
+      "rating": "5",
+      "genre": "Action & Adventure",
+      "id": 11
     }
   ]
 }
