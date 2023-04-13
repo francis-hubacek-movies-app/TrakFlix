@@ -131,6 +131,10 @@ html {
     border-radius: 5px;
 }
 
+#addMovieContainer h2 {
+    font-size: 48px;
+}
+
 nav {
     text-align: center;
     margin: 0;
