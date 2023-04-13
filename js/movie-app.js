@@ -1,7 +1,9 @@
 'use strict';
 let titleArr = [];
 let ratingArr = [];
+let genreArr = [];
 let movieCount = 0;
+
 
 fetch('http://localhost:3000/movies')
     .then(response => response.json())
@@ -11,6 +13,8 @@ fetch('http://localhost:3000/movies')
             $('#movies').append(`<div></div><div id = "${element.id}" class="movieCard"><h2 class="movieTitle">${element.title}</h2><p class="movieGenre">${element.genre}</p><p class="movieRating">${element.rating} <i class="fa-solid fa-star fa-2xl" style="color: #d70fcf;"></i></p><button class="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
             titleArr.push(element.title);
             ratingArr.push(element.rating);
+            genreArr.push(element.genre);
+
         });
         movieCount = data.length;
         $('#movieCount').html(`Total Movies: ${movieCount}`)
@@ -55,6 +59,7 @@ $('#addMovieButton').click(function(e) {
         .catch(error => console.error(error));
 });
 
+//function to edit current displayed movies
 $('#movies').on('click', '.editButton', function(e) {
     e.preventDefault();
     const movieCard = $(this).closest('.movieCard');
@@ -117,3 +122,29 @@ $('#movies').on('click', '.deleteButton', function(e) {
     }
 
 });
+
+console.log(titleArr);
+console.log(ratingArr);
+console.log(genreArr);
+
+$('#searchButton').click(function(e) {
+    e.preventDefault();
+    const searchValue = $('#movieSearch').val();
+    const filteredMovies = [];
+
+    // loop through the movies and check if the search value matches the title or genre
+    for (let i = 0; i < titleArr.length; i++) {
+        if (titleArr[i].toLowerCase().includes(searchValue.toLowerCase()) ||
+            genreArr[i].toLowerCase().includes(searchValue.toLowerCase())) {
+            filteredMovies.push(i);
+        }
+    }
+    console.log(searchValue);
+
+    // hide all movie cards and show only the filtered ones
+    $('.movieCard').hide();
+    for (let i = 0; i < filteredMovies.length; i++) {
+        $('#' + filteredMovies[i]).show();
+    }
+});
+
