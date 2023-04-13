@@ -46,7 +46,7 @@ html {
 .movieCard {
     border: 1px black solid;
     border-radius: 15px;
-    width: 250px;
+    width: 75%;
     text-align: center;
     margin: 15px 30px;
     padding: 15px;
@@ -56,7 +56,7 @@ html {
 }
 
 .movieCard:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 h2 {
