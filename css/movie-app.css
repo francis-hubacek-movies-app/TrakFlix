@@ -25,6 +25,7 @@
 }
 
 html {
+    background-color: black;
     background-image: url("img/wallpaperflare.com_wallpaper.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -36,18 +37,30 @@ html {
 #movies {
     display: flex;
     overflow: auto;
-
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 600px;
+    width: 60%;
 }
 
 .movieCard {
     border: 1px black solid;
     border-radius: 15px;
-    min-width: 200px;
+    width: 250px;
     text-align: center;
     margin: 15px 30px;
     padding: 15px;
     background-color: rgba(255,255,255,0.75);
     box-shadow: 2px 2px 8px #d70fcf;
+    transition: all ease-in-out;
+}
+
+.movieCard:hover {
+    transform: scale(1.1);
+}
+
+h2 {
+
 }
 
 .editButton {
@@ -88,7 +101,7 @@ html {
     border-radius: 15px;
     min-width: 200px;
     text-align: center;
-    margin: 15px 30px;
+    margin: auto;
     padding: 15px;
     background-color: rgba(255,255,255,0.75);
     box-shadow: 4px 4px 8px #d70fcf;
@@ -136,6 +149,22 @@ h1 {
             0 0 92px #d70fcf,
             0 0 102px #d70fcf,
             0 0 151px #d70fcf;
+}
+
+#movieCount {
+    border-radius: 15px;
+    box-shadow: 4px 4px 8px #d70fcf;
+    background-color: rgba(255,255,255,0.75);
+    font-size: 24px;
+    text-decoration: 5px #d70fcf underline overline;
+    width: 250px;
+    text-align: center;
+    margin: 15px 30px;
+    padding: 15px;
+}
+
+#mainContainer {
+    display: flex;
 }
 
 

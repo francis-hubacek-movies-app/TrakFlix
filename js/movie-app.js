@@ -1,15 +1,19 @@
 'use strict';
 let titleArr = [];
 let ratingArr = [];
+let movieCount = 0;
+
 fetch('http://localhost:3000/movies')
     .then(response => response.json())
     .then(data => {
         console.log(data);
         data.forEach(function(element) {
-            $('#movies').append(`<div id = "${element.id}" class="movieCard"><h2 class="movieTitle">${element.title}</h2><p class="movieGenre">${element.genre}</p><p class="movieRating">${element.rating} <i class="fa-solid fa-star" style="color: #ffdc05;"></i></p><button class="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
+            $('#movies').append(`<div></div><div id = "${element.id}" class="movieCard"><h2 class="movieTitle">${element.title}</h2><p class="movieGenre">${element.genre}</p><p class="movieRating">${element.rating} <i class="fa-solid fa-star" style="color: #ffdc05;"></i></p><button class="editButton">Edit</button><button class="deleteButton">Delete</button></div>`);
             titleArr.push(element.title);
             ratingArr.push(element.rating);
         });
+        movieCount = data.length;
+        $('#movieCount').html(`Total Movies: ${movieCount}`)
         $('#loading').hide();
 
         console.log(titleArr);
@@ -19,6 +23,7 @@ fetch('http://localhost:3000/movies')
 
 $('#addMovieButton').click(function(e) {
     e.preventDefault();
+    $('#movieCount').html(`Total Movies: ${movieCount}`)
     function addMovie() {
         let title = $('#movieTitle').val();
         console.log(title);
@@ -44,6 +49,8 @@ $('#addMovieButton').click(function(e) {
             ratingArr.push(data.rating);
             console.log(titleArr);
             console.log(ratingArr);
+            movieCount+=1;
+            $('#movieCount').html(`Total Movies: ${movieCount}`)
         })
         .catch(error => console.error(error));
 });
@@ -84,6 +91,7 @@ $('#movies').on('click', '.editButton', function(e) {
 
 $('#movies').on('click', '.deleteButton', function(e) {
     e.preventDefault();
+    $('#movieCount').html(`Total Movies: ${movieCount}`)
     const movieCard = $(this).closest('.movieCard');
     const movieId = parseInt(movieCard.attr('id'));
     console.log(movieId);
@@ -102,6 +110,8 @@ $('#movies').on('click', '.deleteButton', function(e) {
             .then(() => {
                 // Update the movie card with the new title and rating
                 movieCard.remove();
+                movieCount -= 1;
+                $('#movieCount').html(`Total Movies: ${movieCount}`)
             })
             .catch(error => console.error(error));
     }

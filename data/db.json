@@ -53,6 +53,12 @@
       "rating": "3",
       "genre": "Drama",
       "id": 9
+    },
+    {
+      "title": "O Brother Where Art Thou",
+      "rating": "5",
+      "genre": "Drama",
+      "id": 10
     }
   ]
 }

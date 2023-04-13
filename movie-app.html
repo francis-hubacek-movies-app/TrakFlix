@@ -19,32 +19,36 @@
 <nav>
     <h1>TrakFlix</h1>
 </nav>
-<div id="movies"></div>
-<br><br>
-<div id="addMovieContainer">
-    <form id="addMovie">
-        <h3>Add New Movie</h3>
-        <label for="movieTitle">Movie Title</label>
-        <input id="movieTitle">
-        <label for="movieRating">Movie Rating</label>
-        <select id="movieRating">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-        <label for="movieGenre">Movie Genre</label>
-        <select id="movieGenre">
-            <option>Kids & Family</option>
-            <option>Action & Adventure</option>
-            <option>Drama</option>
-            <option>Comedy</option>
-            <option>Musical</option>
-        </select>
-        <button id="addMovieButton">Add Movie</button>
-    </form>
+<p id="movieCount"></p>
+<div id="mainContainer">
+    <div id="movies"></div>
+    <br><br>
+    <div id="addMovieContainer">
+        <form id="addMovie">
+            <h2>Add New Movie</h2>
+            <label for="movieTitle">Movie Title</label>
+            <input id="movieTitle">
+            <label for="movieRating">Movie Rating</label>
+            <select id="movieRating">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <label for="movieGenre">Movie Genre</label>
+            <select id="movieGenre">
+                <option>Kids & Family</option>
+                <option>Action & Adventure</option>
+                <option>Drama</option>
+                <option>Comedy</option>
+                <option>Musical</option>
+            </select>
+            <button id="addMovieButton">Add Movie</button>
+        </form>
+    </div>
 </div>
+
 <script src="js/jquery-3.6.4.js"></script>
 <script src="js/movie-app.js"></script>
 </body>
