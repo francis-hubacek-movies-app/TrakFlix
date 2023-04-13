@@ -99,7 +99,8 @@ html {
     justify-content: center;
     border: 1px black solid;
     border-radius: 15px;
-    min-width: 200px;
+    width: 30%;
+    min-height: 400px;
     text-align: center;
     margin: auto;
     padding: 15px;
@@ -128,6 +129,10 @@ html {
 
 #addMovieContainer button {
     border-radius: 5px;
+}
+
+#addMovieContainer h2 {
+    font-size: 48px;
 }
 
 nav {
