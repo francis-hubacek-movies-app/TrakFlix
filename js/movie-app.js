@@ -132,7 +132,6 @@ $('#searchButton').click(function(e) {
     const searchValue = $('#movieSearch').val();
     const filteredMovies = [];
 
-    // loop through the movies and check if the search value matches the title or genre
     for (let i = 0; i < titleArr.length; i++) {
         if (titleArr[i].toLowerCase().includes(searchValue.toLowerCase()) ||
             genreArr[i].toLowerCase().includes(searchValue.toLowerCase())) {
@@ -141,7 +140,6 @@ $('#searchButton').click(function(e) {
     }
     console.log(searchValue);
 
-    // hide all movie cards and show only the filtered ones
     $('.movieCard').hide();
     for (let i = 0; i < filteredMovies.length; i++) {
         $('#' + filteredMovies[i]).show();
