@@ -1,14 +1,15 @@
 {
   "movies": [
     {
-      "title": "Shrek 2",
-      "rating": "2",
-      "id": 1,
-      "genre": "Kids & Family"
+      "title": "Shrek 3",
+      "rating": "3 ",
+      "genre": "Kids & Family",
+      "id": 1
     },
     {
-      "title": "Forest Gump 2",
-      "rating": "2",
+      "title": "Forest Gump",
+      "rating": "5",
+      "genre": "Drama",
       "id": 2
     },
     {

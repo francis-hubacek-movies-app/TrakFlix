@@ -3,12 +3,34 @@
     height: 700px;
 }
 
+@keyframes flicker {
+
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+        text-shadow:
+                0 0 4px #fff,
+                0 0 11px #fff,
+                0 0 19px #fff,
+                0 0 40px #d70fcf,
+                0 0 80px #d70fcf,
+                0 0 90px #d70fcf,
+                0 0 100px #d70fcf,
+                0 0 150px #d70fcf;
+
+    }
+
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
 html {
     background-image: url("img/wallpaperflare.com_wallpaper.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
+    font-family: 'Audiowide', cursive;
 }
 
 #movies {
@@ -24,8 +46,8 @@ html {
     text-align: center;
     margin: 15px 30px;
     padding: 15px;
-    background-color: rgba(255,255,255,0.51);
-    box-shadow: 4px 4px 4px #d70fcf;
+    background-color: rgba(255,255,255,0.75);
+    box-shadow: 2px 2px 8px #d70fcf;
 }
 
 .editButton {
@@ -68,8 +90,8 @@ html {
     text-align: center;
     margin: 15px 30px;
     padding: 15px;
-    background-color: rgba(255,255,255,0.51);
-    box-shadow: 4px 4px 4px #d70fcf;
+    background-color: rgba(255,255,255,0.75);
+    box-shadow: 4px 4px 8px #d70fcf;
 }
 
 /*#addMovieContainer {*/
@@ -89,6 +111,31 @@ html {
     display: block;
     text-align: center;
     margin: 10px 0;
+}
+
+#addMovieContainer button {
+    border-radius: 5px;
+}
+
+nav {
+    text-align: center;
+    margin: 0;
+}
+
+
+h1 {
+    font-size: 72px;
+    font-family: 'Audiowide', cursive;
+    animation: flicker 1.5s infinite alternate;
+    text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px #d70fcf,
+            0 0 82px #d70fcf,
+            0 0 92px #d70fcf,
+            0 0 102px #d70fcf,
+            0 0 151px #d70fcf;
 }
 
 
