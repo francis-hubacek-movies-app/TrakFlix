@@ -1,22 +1,10 @@
 {
   "movies": [
     {
-      "title": "Shrek 3",
-      "rating": "3 ",
+      "title": "Shrek",
+      "rating": "5",
       "genre": "Kids & Family",
       "id": 1
-    },
-    {
-      "title": "Forest Gump",
-      "rating": "5",
-      "genre": "Drama",
-      "id": 2
-    },
-    {
-      "title": "Avengers",
-      "rating": "1",
-      "id": 3,
-      "genre": "Action & Adventure"
     },
     {
       "title": "Transformers",
@@ -31,12 +19,6 @@
       "id": 5
     },
     {
-      "title": "Salt",
-      "rating": "2",
-      "genre": "Action & Adventure",
-      "id": 6
-    },
-    {
       "title": "Ratatouille",
       "rating": "5",
       "genre": "Kids & Family",
@@ -44,21 +26,33 @@
     },
     {
       "title": "Mr. and Mrs. Smith",
-      "rating": "4",
+      "rating": "3",
       "genre": "Action & Adventure",
       "id": 8
-    },
-    {
-      "title": "The Notebook",
-      "rating": "3",
-      "genre": "Drama",
-      "id": 9
     },
     {
       "title": "O Brother Where Art Thou",
       "rating": "5",
       "genre": "Drama",
       "id": 10
+    },
+    {
+      "title": "Lord of The Rings: The Return of the King",
+      "rating": "5",
+      "genre": "Action & Adventure",
+      "id": 11
+    },
+    {
+      "title": "Up",
+      "rating": "5",
+      "genre": "Kids & Family",
+      "id": 12
+    },
+    {
+      "title": "The Shawshank Redemption",
+      "rating": "5",
+      "genre": "Drama",
+      "id": 13
     }
   ]
 }

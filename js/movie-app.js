@@ -3,8 +3,9 @@ let titleArr = [];
 let ratingArr = [];
 let genreArr = [];
 let movieCount = 0;
+$('#editModal').hide();
 
-
+// fetches data and generates movie cards
 fetch('http://localhost:3000/movies')
     .then(response => response.json())
     .then(data => {
@@ -17,14 +18,14 @@ fetch('http://localhost:3000/movies')
 
         });
         movieCount = data.length;
-        $('#movieCount').html(`Total Movies: ${movieCount}`)
+        $('#movieCount').html(`Collection Size: ${movieCount}`)
         $('#loading').hide();
 
         console.log(titleArr);
         console.log(ratingArr);
     });
 
-
+// adds movie input into the "add movie" form
 $('#addMovieButton').click(function(e) {
     e.preventDefault();
     $('#movieCount').html(`Total Movies: ${movieCount}`)
@@ -59,7 +60,7 @@ $('#addMovieButton').click(function(e) {
         .catch(error => console.error(error));
 });
 
-//function to edit current displayed movies
+// display movie edits
 $('#movies').on('click', '.editButton', function(e) {
     e.preventDefault();
     const movieCard = $(this).closest('.movieCard');
@@ -69,29 +70,48 @@ $('#movies').on('click', '.editButton', function(e) {
     const rating = movieCard.find('.movieRating').text();
     const genre = movieCard.find('.movieGenre').text();
 
-    // Show a prompt to get the new title and rating
-    const newTitle = prompt('Enter a new title:', title);
-    const newGenre = prompt('Enter a new genre:', genre);
-    const newRating = prompt('Enter a new rating:', rating);
+    // show the edit modal
+    const editModal = $('#editModal');
+    editModal.find('#newTitle').val(title);
+    editModal.find('#newGenre').val(genre);
+    editModal.find('#newRating').val(rating);
+    $('#addMovieContainer').hide();
+    editModal.show();
+
+    // functions for edit modal submit and cancel buttons
+    $('#submitEdit').on('click', function() {
+        const newTitle = editModal.find('#newTitle').val();
+        const newGenre = editModal.find('#newGenre').val();
+        const newRating = editModal.find('#newRating').val();
 
 
-    if (newTitle && newRating) {
-        // Send a PUT request to update the movie in the server
-        fetch(`http://localhost:3000/movies/${movieId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ title: newTitle, rating: newRating, genre: newGenre })
-        })
-            .then(() => {
-                // Update the movie card with the new title and rating
-                movieCard.find('.movieTitle').text(newTitle);
-                movieCard.find('.movieRating').html(`${newRating}  <i class="fa-solid fa-star" style="color: #ffdc05;"></i>`);
+        if (newTitle || newRating || newGenre) {
+            fetch(`http://localhost:3000/movies/${movieId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ title: newTitle, rating: newRating, genre: newGenre })
             })
-            .catch(error => console.error(error));
-    }
+                .then(() => {
+                    // Update the movie card with the new title and rating
+                    movieCard.find('.movieTitle').text(newTitle);
+                    movieCard.find('.movieRating').html(`${newRating}  <i class="fa-solid fa-star fa-2xl" style="color: #d70fcf;"></i>`);
+                    movieCard.find('.movieGenre').text(newGenre);
+                })
+                .catch(error => console.error(error));
+        }
+
+        editModal.hide();
+        $('#addMovieContainer').show();
+    });
+
+    $('#cancelEdit').on('click', function() {
+        editModal.hide();
+        $('#addMovieContainer').show();
+    });
 });
+
 
 
 $('#movies').on('click', '.deleteButton', function(e) {
@@ -123,26 +143,5 @@ $('#movies').on('click', '.deleteButton', function(e) {
 
 });
 
-console.log(titleArr);
-console.log(ratingArr);
-console.log(genreArr);
 
-$('#searchButton').click(function(e) {
-    e.preventDefault();
-    const searchValue = $('#movieSearch').val();
-    const filteredMovies = [];
-
-    for (let i = 0; i < titleArr.length; i++) {
-        if (titleArr[i].toLowerCase().includes(searchValue.toLowerCase()) ||
-            genreArr[i].toLowerCase().includes(searchValue.toLowerCase())) {
-            filteredMovies.push(i);
-        }
-    }
-    console.log(searchValue);
-
-    $('.movieCard').hide();
-    for (let i = 0; i < filteredMovies.length; i++) {
-        $('#' + filteredMovies[i]).show();
-    }
-});
 
