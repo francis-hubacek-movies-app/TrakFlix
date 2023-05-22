@@ -4,6 +4,7 @@ let ratingArr = [];
 let genreArr = [];
 let movieCount = 0;
 $('#editModal').hide();
+$('#addMovieContainer').hide();
 
 // fetches data and generates movie cards
 fetch('http://localhost:3000/movies')
@@ -20,6 +21,7 @@ fetch('http://localhost:3000/movies')
         movieCount = data.length;
         $('#movieCount').html(`Collection Size: ${movieCount}`)
         $('#loading').hide();
+        $('#addMovieContainer').show();
 
         console.log(titleArr);
         console.log(ratingArr);
@@ -28,7 +30,7 @@ fetch('http://localhost:3000/movies')
 // adds movie input into the "add movie" form
 $('#addMovieButton').click(function(e) {
     e.preventDefault();
-    $('#movieCount').html(`Total Movies: ${movieCount}`)
+    $('#movieCount').html(`Collection Size: ${movieCount}`)
     function addMovie() {
         let title = $('#movieTitle').val();
         console.log(title);

@@ -37,10 +37,10 @@ html {
 #movies {
     display: flex;
     overflow: auto;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     justify-content: center;
     max-height: 600px;
-    width: 70%;
+    width: 100%;
 }
 
 .movieCard {
@@ -103,11 +103,12 @@ html {
     width: 30%;
     min-height: 400px;
     text-align: center;
-    margin: auto;
     padding: 15px;
     background-color: rgba(255,255,255,0.75);
     box-shadow: 4px 4px 8px #d70fcf;
+    margin: 0 50px;
 }
+
 
 
 #addMovieContainer h3,
