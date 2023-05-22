@@ -7,12 +7,6 @@
       "id": 1
     },
     {
-      "title": "Transformers",
-      "rating": "4",
-      "id": 4,
-      "genre": "Action & Adventure"
-    },
-    {
       "title": "Cinderella",
       "rating": "1",
       "genre": "Kids & Family",
@@ -25,34 +19,28 @@
       "id": 7
     },
     {
-      "title": "Mr. and Mrs. Smith",
-      "rating": "3",
-      "genre": "Action & Adventure",
-      "id": 8
+      "title": "Shrek 2",
+      "rating": "4",
+      "genre": "Kids & Family",
+      "id": 9
     },
     {
-      "title": "O Brother Where Art Thou",
+      "title": "Shrek 3",
       "rating": "5",
-      "genre": "Drama",
+      "genre": "Kids & Family",
       "id": 10
     },
     {
-      "title": "Lord of The Rings: The Return of the King",
-      "rating": "5",
+      "title": "Transformers",
+      "rating": "3",
       "genre": "Action & Adventure",
       "id": 11
     },
     {
-      "title": "Up",
-      "rating": "5",
-      "genre": "Kids & Family",
+      "title": "Cool Movie",
+      "rating": "3",
+      "genre": "Action & Adventure",
       "id": 12
-    },
-    {
-      "title": "The Shawshank Redemption",
-      "rating": "5",
-      "genre": "Drama",
-      "id": 13
     }
   ]
 }
