@@ -41,12 +41,13 @@ html {
     justify-content: center;
     max-height: 600px;
     width: 100%;
+    min-width: 400px;
 }
 
 .movieCard {
     border: 1px black solid;
     border-radius: 15px;
-    width: 75%;
+    min-width: 300px;
     text-align: center;
     margin: 15px 30px;
     padding: 15px;
@@ -54,6 +55,7 @@ html {
     box-shadow: 4px 4px 8px #d70fcf;
     transition: all ease-in-out;
     white-space: nowrap;
+    overflow: auto;
 }
 
 .movieCard:hover {
@@ -61,7 +63,7 @@ html {
 }
 
 .movieCard h2 {
-    font-size: 48px;
+    font-size: 24px;
     overflow: auto;
 }
 
